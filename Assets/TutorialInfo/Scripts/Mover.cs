@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    public static GameObject bolt;
-    public Rigidbody rb = bolt.GetComponent<Rigidbody>();
+    public Rigidbody rb;
     public float speed;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void Start()
     {
