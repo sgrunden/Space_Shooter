@@ -8,13 +8,12 @@ public class DestroyByContact : MonoBehaviour
     public GameObject explosion;
     public GameObject playerExplosion;
     public int scoreValue;
-    public Text scoreText;
     private GameController gameController;
 
     private void Start()
     {
         scoreValue = 0;
-        SetScoreText();
+       // SetScoreText();
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         if(gameControllerObject != null)
         {
@@ -39,17 +38,12 @@ public class DestroyByContact : MonoBehaviour
         if(other.gameObject.CompareTag("Asteroid"))
         {
             scoreValue = scoreValue + 10;
-            SetScoreText();
+            //SetScoreText();
 
         }
-        //gameController.AddScore(scoreValue);
+        gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
-    }
-
-    void SetScoreText()
-    {
-        scoreText.text = "Score: " + scoreValue.ToString();
     }
 
 }
